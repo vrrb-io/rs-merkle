@@ -136,6 +136,7 @@ extern crate std;
 pub use error::Error;
 pub use error::ErrorKind;
 pub use hasher::Hasher;
+pub use merkle_patricia_trie::MerklePatriciaTrie;
 pub use merkle_proof::MerkleProof;
 pub use merkle_tree::MerkleTree;
 pub use partial_tree::PartialTree;
@@ -143,6 +144,7 @@ pub use proof_serializers::MerkleProofSerializer;
 
 mod error;
 mod hasher;
+mod merkle_patricia_trie;
 mod merkle_proof;
 mod merkle_tree;
 mod partial_tree;

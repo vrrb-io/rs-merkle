@@ -1,6 +1,7 @@
 use crate::prelude::*;
 use core::convert::TryFrom;
 use core::mem;
+use std::fmt::Debug;
 
 /// Hasher is a trait used to provide a hashing algorithm for the library.
 ///
@@ -26,7 +27,7 @@ use core::mem;
 ///     }
 /// }
 /// ```
-pub trait Hasher: Clone {
+pub trait Hasher: Clone + Debug {
     /// This type is used as a hash type in the library.
     /// It is recommended to use fixed size u8 array as a hash type. For example,
     /// for sha256 the type would be `[u8; 32]`, representing 32 bytes,
@@ -39,7 +40,7 @@ pub trait Hasher: Clone {
     /// `PartialEq` is required to compare equality when verifying proof
     /// `Into<Vec<u8>>` is required to be able to serialize proof
     /// `TryFrom<Vec<u8>>` is required to parse hashes from a serialized proof
-    type Hash: Copy + PartialEq + Into<Vec<u8>> + TryFrom<Vec<u8>>;
+    type Hash: Debug + Copy + PartialEq + Into<Vec<u8>> + TryFrom<Vec<u8>>;
 
     /// This associated function takes a slice of bytes and returns a hash of it.
     /// Used by `concat_and_hash` function to build a tree from concatenated hashes

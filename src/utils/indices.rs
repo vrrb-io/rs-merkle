@@ -1,6 +1,8 @@
 use crate::{prelude::*, utils};
 use alloc::collections::BTreeMap;
 
+type Nibble = u8;
+
 pub fn is_left_index(index: usize) -> bool {
     index % 2 == 0
 }
